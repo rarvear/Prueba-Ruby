@@ -1,4 +1,4 @@
-data = File.open('alumnos-notas.csv', 'r')
+data = File.read('alumnos-notas.csv')
 
 def hsh_mk(inf)
   ary = []
@@ -19,7 +19,7 @@ prom = {}
 hsh.each do |ind, x|
   n = 0
   x.inject(0) do |m, i|
-    m += i.to_i unless i.to_i == 'A'
+    m += i.to_i
     n = m
   end
   prom[ind] = (n.to_f / x.count)
